@@ -1,0 +1,31 @@
+Team:	Xiaolan Cai
+      Chi Chen
+      Andrew Guttman
+
+Title: Ingredient Tracker
+
+Description: An application that can recommend recipes based on what ingredients a user already has. Can also list ingredients needed to make a given recipe.
+
+Actors: user
+
+Functionality:
+
+•	User can sign up
+•	User can log in
+•	User can add ingredients and amounts to digital pantry
+•	User can adjust amounts of ingredients in pantry
+•	User can remove ingredients from pantry
+•	User can search for recipes that only use ingredients already in pantry
+•	User can sort recipes by number of ingredients not in pantry needed
+•	User can auto adjust ingredient amounts down by the amount used in a recipe 
+•	User can list all ingredients needed for any recipe
+•	User can add custom recipe
+•	User can define substitutions, allowing some ingredient to count as any other chosen ingredient when searching or sorting recipes
+•	User can blacklist chosen ingredients, hiding recipes from search and sort
+•	User can save recipes
+•	User can browse his/her recipe history
+
+Stretch Functionality:
+•	Track cooking devices owned and needed
+•	Build substitutions into recipes
+
