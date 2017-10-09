@@ -1,4 +1,4 @@
 # OOAD_Project
 Project_title: Ingredient Tracker
 
-Xiaolan Cai, Andrew Guttman and <>
+Xiaolan Cai, Andrew Guttman and Chi Chen.
