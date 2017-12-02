@@ -26,7 +26,17 @@ public class PantryController {
 	}
 
 	private void add() {
-
+		String name;
+		String unit;
+		double amount;
+		System.out.println("Enter name of Ingredient");
+		name = sc.next();
+		System.out.println("Enter name of Unit");
+		unit = sc.next();
+		System.out.println("Enter Anmount");
+		amount = sc.nextDouble();
+		Ingred newIn = new Ingred(name, unit, amount);
+		mPantry.add(newIn);
 	}
 
 	private void remove() {
@@ -40,7 +50,22 @@ public class PantryController {
 	}
 
 	private void adjust() {
-		
+		int option;
+		double amount;
+		clearDisplay();
+		displayNumbered();
+		System.out.println("Select a number to adjust it");
+		option = sc.nextInt()-1;
+		if (option > mPantry.getSize()) return;
+		System.out.println(mPantry.getAt(option).getName() + "\t" + mPantry.getAt(option).getAmount() + "\t" + mPantry.getAt(option).getUnit());		
+		System.out.println("Enter new amount");
+		amount = sc.nextDouble();
+		if (amount == 0.0) {
+			mPantry.remove(option+1);	
+		}
+		else {
+			mPantry.getAt(option).setAmount(amount);
+		}
 	}
 
 	public void run() {
@@ -62,6 +87,8 @@ public class PantryController {
 				case 2: remove();
 						break;
 
+				case 3: adjust();
+						break;
 				// case 3: System.out.print("\033[H\033[2J");
 				// 		System.out.flush();
 				// 		user.getPantry().displayNumbered();

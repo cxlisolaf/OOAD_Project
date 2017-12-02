@@ -36,7 +36,7 @@ public class Pantry {
 		
 	}
 
-	public void add() {
-		
+	public void add(Ingred newIn) {
+		ingredList.add(newIn);
 	}
 }
