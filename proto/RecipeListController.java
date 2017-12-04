@@ -4,13 +4,15 @@ public class RecipeListController {
 	private RecipeList mRC;
 	private RecipeList mF;
 	private RecipeList mH;
+	private Pantry mP;
 	private Scanner sc = new Scanner(System.in);
 	int type;
 
-	RecipeListController(RecipeList mRC, RecipeList mF, RecipeList mH, int type) {
+	RecipeListController(RecipeList mRC, RecipeList mF, RecipeList mH, Pantry mP, int type) {
 		this.mRC = mRC;
 		this.mF = mF;
 		this.mH = mH;
+		this.mP = mP;
 		this.type = type;
 	}
 
@@ -25,6 +27,34 @@ public class RecipeListController {
 		}
 	}
 
+	private void makeShopping(Recipe mR) {
+		clearDisplay();
+		String list = "";
+		for (int i = 0; i < mR.getIngredList().size(); i++) {
+			String ingredName = mR.getIngredList().get(i).getName();
+			for (int j = 0; j < mP.getSize(); j++) {
+				if (mP.getAt(j).getName().equals(ingredName)) {
+					if (mP.getAt(j).getUnit().equals(mR.getIngredList().get(i).getUnit())) {
+						double amnt = mR.getIngredList().get(i).getAmount() - mP.getAt(j).getAmount();
+						if (amnt <= 0) {
+							break;
+						}
+						else {
+							list += mP.getAt(j).getName() + ": " + amnt + " " + mP.getAt(j).getUnit() + "\n";
+							break;
+						}
+					}
+				}
+				if (j+1 == mP.getSize()) {
+					list += mR.getIngredList().get(i) + "\n";
+				}
+			}
+		}
+		System.out.println(list);
+		sc.nextLine();
+		sc.nextLine();
+	}
+
 	private void view() {
 		int option;
 		clearDisplay();
@@ -34,13 +64,16 @@ public class RecipeListController {
 		Recipe mR = mRC.getAt(option);
 		clearDisplay();
 		System.out.println(mR);
-		System.out.println("\n1 to add to favorites, 2 to add to history, 0 to quit");
+		System.out.println("\n1 to add to favorites, 2 to add to history, 3 to generate shooping list, 0 to quit");
 		option = sc.nextInt();
 		if (option == 1) {
 			mF.add(mR);
 		}
 		if (option == 2) {
 			mH.add(mR);
+		}
+		if (option == 3) {
+			makeShopping(mR);
 		}
 	}
 

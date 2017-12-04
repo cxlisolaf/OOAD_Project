@@ -24,17 +24,17 @@ public class Proto {
 						pc = null;
 						break;
 				
-				case 2:	RecipeListController rc = new RecipeListController(user.getRecipeList(),user.getFavs(),user.getHistory(),0);
+				case 2:	RecipeListController rc = new RecipeListController(user.getRecipeList(),user.getFavs(),user.getHistory(),user.getPantry(),0);
 						rc.run();
 						rc = null;
 						break;
 				
-				case 3:	RecipeListController rc1 = new RecipeListController(user.getFavs(),user.getFavs(),user.getHistory(),1);
+				case 3:	RecipeListController rc1 = new RecipeListController(user.getFavs(),user.getFavs(),user.getHistory(),user.getPantry(),1);
 						rc1.run();
 						rc1 = null;
 						break;
 
-				case 4:	RecipeListController rc2 = new RecipeListController(user.getHistory(),user.getFavs(),user.getHistory(),2);
+				case 4:	RecipeListController rc2 = new RecipeListController(user.getHistory(),user.getFavs(),user.getHistory(),user.getPantry(),2);
 						rc2.run();
 						rc2 = null;
 						break;
