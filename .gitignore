@@ -1,0 +1,5 @@
+#IntelliJ
+*.iml
+
+#MAC
+.DS_Store
