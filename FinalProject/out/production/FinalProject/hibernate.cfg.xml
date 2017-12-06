@@ -18,5 +18,6 @@
     <property name="hibernate.connection.password">root</property>
     <!-- Mapping class -->
     <mapping class="Ingred"></mapping>
+    <!--<mapping class="Recipe"></mapping>-->
   </session-factory>
 </hibernate-configuration>

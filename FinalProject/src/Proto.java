@@ -5,11 +5,13 @@ public class Proto {
 	public static void main (String[] args) {
 		Scanner sc = new Scanner(System.in);
 //		User user = new User(args[0]);
-		User user = new User("Andrew");
+//		User user = new User("Andrew");
 		int option = 0;
-
+        String name;
 		//System.out.println("Welcome " + user.getName());
-
+        System.out.println("Please enter your name ");
+        name = sc.next();
+        User user = new User(name);
 		while (true) {
 			clearDisplay();
 			System.out.println("Welcome " + user.getName());
@@ -20,7 +22,7 @@ public class Proto {
 				case 0:	clearDisplay();
 						return;
 
-				case 1:	PantryController pc = new PantryController(user.getPantry());
+				case 1:	PantryController pc = new PantryController(user);
 						pc.run();
 						pc = null;
 						break;

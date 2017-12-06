@@ -7,16 +7,24 @@ public class PantryController {
 	private Pantry mPantry;
 	private Scanner sc = new Scanner(System.in);
     private SessionFactory factory;
+    private User mUser;
 
-	PantryController(Pantry mPantry) {
-		this.mPantry = mPantry;
+	PantryController(User user) {
+		this.mUser = user;
+		this.mPantry = user.getPantry();
+//		System.out.println("Pantry: " + mPantry);
+//		this.mPantry = pantry;
 		try {
 			factory = new Configuration()
 					.configure("hibernate.cfg.xml")
 					.addAnnotatedClass(Ingred.class)
+//					.addAnnotatedClass(Recipe.class)
 					.buildSessionFactory();
 		}catch(Exception e){
 			System.out.println(e);
+		}
+		if(factory == null){
+			System.out.println("No factory");
 		}
         this.mPantry.setSessionFactory(factory);
 	}
@@ -31,9 +39,10 @@ public class PantryController {
 	}
 
 	private void displayNumbered() {
-		for (int i = 0; i < mPantry.getSize(); i++) {
-			System.out.println((i+1) + "\t" + mPantry.getAt(i).getName());
-		}
+//		for (int i = 0; i < mPantry.getSize(); i++) {
+//			System.out.println((i+1) + "\t" + mPantry.getAt(i).getName());
+//		}
+		mPantry.displayNumbered();
 	}
 
 	private void add() {
@@ -46,7 +55,7 @@ public class PantryController {
 		unit = sc.next();
 		System.out.println("Enter Anmount");
 		amount = sc.nextDouble();
-		Ingred newIn = new Ingred(name, unit, amount);
+		Ingred newIn = new Ingred(name, unit, amount, mUser.getName());
 		mPantry.add(newIn);
 	}
 
@@ -56,6 +65,7 @@ public class PantryController {
 		displayNumbered();
 		System.out.println("Select a number to remove it");
 		option = sc.nextInt();
+//		System.out.println(mPantry.getSize());
 		if (option > mPantry.getSize()) return;
 		mPantry.remove(option);		
 	}
@@ -66,16 +76,17 @@ public class PantryController {
 		clearDisplay();
 		displayNumbered();
 		System.out.println("Select a number to adjust it");
-		option = sc.nextInt()-1;
+		option = sc.nextInt();
+//		System.out.println(mPantry.getSize());
 		if (option > mPantry.getSize()) return;
-		System.out.println(mPantry.getAt(option).getName() + "\t" + mPantry.getAt(option).getAmount() + "\t" + mPantry.getAt(option).getUnit());		
+//		System.out.println(mPantry.getAt(option).getName() + "\t" + mPantry.getAt(option).getAmount() + "\t" + mPantry.getAt(option).getUnit());
 		System.out.println("Enter new amount");
 		amount = sc.nextDouble();
 		if (amount == 0.0) {
-			mPantry.remove(option+1);	
+			mPantry.remove(option);
 		}
 		else {
-			mPantry.getAt(option).setAmount(amount);
+			mPantry.adjust(option, amount);
 		}
 	}
 

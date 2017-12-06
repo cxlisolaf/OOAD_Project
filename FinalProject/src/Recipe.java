@@ -1,10 +1,22 @@
 import java.util.*;
+import javax.persistence.*;
+@Entity
+@Table(name = "Recipe")
 
-public class Recipe {
+public class Recipe{
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name ="ID")
+	private int id;
+	@Column(name ="name")
 	private String name;
-	private List<Ingred> ingredList = new ArrayList<Ingred>();
+	@Column(name ="instruct")
 	private String instruct;
+	@Column(name ="canon")
 	private boolean canon;
+
+	private List<Ingred> ingredList = new ArrayList<Ingred>();
 
 	Recipe(String name) {
 		this.name = name;

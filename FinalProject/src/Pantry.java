@@ -8,8 +8,7 @@ public class Pantry {
     private SessionFactory factory;
 
 	Pantry() {
-		Ingred bread = new Ingred("bread", "loaf", 1);
-		ingredList.add(bread);
+
 	}
 
 	public void setSessionFactory(SessionFactory factory){
@@ -21,32 +20,86 @@ public class Pantry {
 	}
 
 	public int getSize() {
-		return this.ingredList.size();
+		Session session = factory.openSession();
+		List<Ingred> ingredList = session.createQuery("from Ingred").list();
+		return ingredList.size();
 	}
 
 	public void display() {
 //		for (int i = 0; i < ingredList.size(); i++) {
 //			System.out.println(ingredList.get(i).getName() + "\t" + ingredList.get(i).getAmount() + "\t" + ingredList.get(i).getUnit());
 //		}
-		Session session = factory.openSession();
-		List<Ingred> ingredList = session.createQuery("from Ingred").list();
-		for (Ingred i : ingredList) {
-			System.out.println(i.getName() + "\t" + i.getAmount() + "\t" + i.getUnit());
+		if(factory == null){
+			System.out.println("no factory");
 		}
+		Session session = factory.openSession();
+		if(session == null){
+			System.out.println("no session");
+		}
+		List<Ingred> ingredList = session.createQuery("from Ingred").list();
+		if(ingredList == null || ingredList.size() == 0){
+			System.out.println("Empty");
+		} else{
+			for (Ingred i : ingredList) {
+				System.out.println(i.getName() + "\t" + i.getAmount() + "\t" + i.getUnit());
+			}
+		}
+
 	}
 
 	public void displayNumbered() {
-		for (int i = 0; i < ingredList.size(); i++) {
-			System.out.println((i+1) + "\t" + ingredList.get(i).getName());
+//		for (int i = 0; i < ingredList.size(); i++) {
+//			System.out.println((i+1) + "\t" + ingredList.get(i).getName());
+//		}
+		Session session = factory.openSession();
+		List<Ingred> ingredList = session.createQuery("from Ingred").list();
+		int count = 1;
+		for (Ingred i : ingredList) {
+			System.out.println(count + "\t" + i.getName() + "\t" + i.getAmount() + "\t" + i.getUnit());
+			count += 1;
 		}
 	}
 
 	public void remove(int num) {
-		ingredList.remove(num-1);
+//		ingredList.remove(num-1);
+		Session session = factory.openSession();
+		List<Ingred> ingredList = session.createQuery("from Ingred").list();
+		int count = 1;
+		for (Ingred i : ingredList) {
+			if (count == num){
+				System.out.println("Open session...");
+				session.beginTransaction();
+				System.out.println("Begin transaction...");
+				session.delete(i);
+				System.out.println("Add to database...");
+				session.getTransaction().commit();
+				System.out.println("commit...");
+				break;
+			}
+//			System.out.println(count + "\t" + i.getName());
+			count += 1;
+		}
 	}
 
-	public void adjust(int num) {
-		
+	public void adjust(int num, double amount) {
+		Session session = factory.openSession();
+		List<Ingred> ingredList = session.createQuery("from Ingred").list();
+		int count = 1;
+		for (Ingred i : ingredList) {
+			if (count == num){
+				System.out.println("Open session...");
+				session.beginTransaction();
+				System.out.println("Begin transaction...");
+				i.setAmount(amount);
+				session.update(i);
+				System.out.println("Add to database...");
+				session.getTransaction().commit();
+				System.out.println("commit...");
+				break;
+			}
+//			System.out.println(count + "\t" + i.getName());
+			count += 1;
+		}
 	}
 
 	public void add(Ingred newIn) {

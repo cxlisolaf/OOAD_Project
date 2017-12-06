@@ -92,7 +92,7 @@ public class RecipeListController {
 			String unit = sc.next();
 			System.out.println("Enter ingredient amount");
 			double amount = sc.nextDouble();
-			Ingred mI = new Ingred(ingredName, unit, amount);
+			Ingred mI = new Ingred(ingredName, unit, amount, name);
 			iList.add(mI);
 			System.out.println("Enter ingredient name (0 to end)");
 			ingredName = sc.next();
