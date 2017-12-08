@@ -4,4 +4,9 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
+    <class name="com.ingredientTracker.UserIngredientsEntity" table="User-ingredients" schema="IngredientTracker">
+        <id name="id">
+            <column name="id" sql-type="int(11) unsigned"/>
+        </id>
+    </class>
 </hibernate-mapping>

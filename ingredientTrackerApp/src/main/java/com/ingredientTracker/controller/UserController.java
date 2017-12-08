@@ -22,7 +22,7 @@ public class UserController {
     private UserService userService;
 
     @Autowired(required = true)
-    @Qualifier(value = "UserService")
+    @Qualifier(value = "userService")
     public void setUserService(UserService us) {
         this.userService = us;
     }
@@ -54,7 +54,7 @@ public class UserController {
         }
 
         model.addAttribute("userid", Integer.toString(userService.getUserByName(username).getId()));
-        return "redirect:/event";
+        return "redirect:/mypantry";
     }
 
 

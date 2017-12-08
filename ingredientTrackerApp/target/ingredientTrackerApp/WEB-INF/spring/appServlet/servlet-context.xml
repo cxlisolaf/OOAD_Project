@@ -46,6 +46,8 @@
         <beans:property name="annotatedClasses">
             <beans:list>
                 <beans:value>com.ingredientTracker.entity.UserEntity</beans:value>
+                <beans:value>com.ingredientTracker.entity.IngredientsEntity</beans:value>
+
             </beans:list>
         </beans:property>
         <beans:property name="hibernateProperties">
@@ -61,8 +63,15 @@
     <beans:bean id="userDAO" class="com.ingredientTracker.dao.UserDAOImpl">
         <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>
-    <beans:bean id="UserService" class="com.ingredientTracker.service.UserServiceImpl">
-        <beans:property name="UserDAO" ref="userDAO"></beans:property>
+    <beans:bean id="userService" class="com.ingredientTracker.service.UserServiceImpl">
+        <beans:property name="userDAO" ref="userDAO"></beans:property>
+    </beans:bean>
+
+    <beans:bean id="ingredientDAO" class="com.ingredientTracker.dao.IngredientDAOImpl">
+        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </beans:bean>
+    <beans:bean id="ingredientService" class="com.ingredientTracker.service.IngredientServiceImpl">
+        <beans:property name="ingredientDAO" ref="ingredientDAO"></beans:property>
     </beans:bean>
 
     <context:component-scan base-package="com.ingredientTracker" />

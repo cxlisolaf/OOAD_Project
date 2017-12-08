@@ -6,9 +6,18 @@
   <session-factory>
     <property name="connection.url">jdbc:mysql://localhost:3306/IngredientTracker</property>
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-    <mapping class="com.ingredientTracker.entity.UserEntity"/>
+      <mapping class="com.ingredientTracker.entity.UserEntity"/>
     <mapping resource="com/ingredientTracker/entity/UserEntity.hbm.xml"/>
-    <!-- <property name="connection.username"/> -->
+      <mapping class="com.ingredientTracker.IngredientsEntity"/>
+      <mapping resource="com/ingredientTracker/IngredientsEntity.hbm.xml"/>
+      <mapping class="com.ingredientTracker.UserIngredientsEntity"/>
+      <mapping resource="com/ingredientTracker/UserIngredientsEntity.hbm.xml"/>
+      <mapping class="com.ingredientTracker.entity.IngredientsEntity"/>
+      <mapping resource="com/ingredientTracker/entity/IngredientsEntity.hbm.xml"/>
+      <mapping class="com.ingredientTracker.entity.UserIngredientsEntity"/>
+      <mapping resource="com/ingredientTracker/entity/UserIngredientsEntity.hbm.xml"/>
+      <mapping class="com.ingredientTracker.UserEntity"/>
+      <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->
 
     <!-- DB schema will be updated if needed -->

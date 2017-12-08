@@ -9,7 +9,8 @@
 
 
 <div class="container">
-    <h1>Ingredient Tracker Account Register</h1>
+    <h1>Ingredient Tracker</h1>
+    <h3>Account Register</h3>
 
     <form:form name="myForm" method="post" commandName="user">
         <form:hidden path="id" />
@@ -30,6 +31,8 @@
                 <form:errors path="password" cssClass="text-warning" />
             </div>
         </fieldset>
+
+
 
 
         <input class="btn btn-success" type="submit" value="Register" />

@@ -5,11 +5,11 @@
   Time: 12:42 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="common/header.jspf"%>
 
 <div class="container">
-    <h1>Login</h1>
+    <h1>Ingredient Tracker</h1>
+    <h3>Login</h3>
     <form:form action="/login" method="post" class="form-horizontal">
         <fieldset class="form-group">
             <div class="col-xs-3">
