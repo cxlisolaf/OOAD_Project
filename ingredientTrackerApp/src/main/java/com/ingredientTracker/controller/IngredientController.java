@@ -40,7 +40,7 @@ public class IngredientController {
     }
 
     @RequestMapping(value = "/mypantry", method = RequestMethod.GET)
-    public String showMainPage(ModelMap model) {
+    public String showMypantry(ModelMap model) {
 
         List<IngredientsEntity> i = this.ingredientService.listIngredients();
         List<String> username = new ArrayList<String>();
@@ -51,17 +51,11 @@ public class IngredientController {
 
 
     @RequestMapping(value = "/add-ingredient", method = RequestMethod.GET)
-    public String showAddIngredientPage(ModelMap model) {
+    public String showAddIngredient(ModelMap model) {
         model.addAttribute("ingredients", new IngredientsEntity());
         return "add-ingredient";
     }
 
-
-    @RequestMapping("/remove/{ingredientId}")
-    public String removeEvent(@PathVariable("ingredientId") int ingredientId) {
-        this.ingredientService.removeIngredient(ingredientId);
-        return "redirect:/manage-event";
-    }
 
 
 }

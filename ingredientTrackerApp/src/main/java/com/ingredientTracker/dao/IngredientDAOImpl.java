@@ -42,7 +42,7 @@ public class IngredientDAOImpl implements IngredientDAO {
 
         Session session = this.sessionFactory.getCurrentSession();
         session.update(i);
-        logger.info("Ingrediet updated, ingredients detail=" +i);
+        logger.info("Ingredient updated, ingredients detail=" +i);
 
     }
 

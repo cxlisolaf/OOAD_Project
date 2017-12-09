@@ -42,11 +42,11 @@
         </tr>
         </thead>
 
-        <tbody>
-        <c:forEach items="${ingredient}" var="ingredient" varStatus="status">
+        <tbody
+        <c:forEach items="${IngredientEntity}" var="ingredient" varStatus="status">
             <tr>
-                <td>${ingredient.name}</td>
-                <td>${ingredient.quantity}</td>
+                <td>${ingredient.ingredientName}</td>
+                <td>${ingredient.ingredientQuantity}</td>
                 <td>
                     <a class="btn btn-danger" href="/remove/${ingredient.ingredientId}">Delete</a>
                 </td>

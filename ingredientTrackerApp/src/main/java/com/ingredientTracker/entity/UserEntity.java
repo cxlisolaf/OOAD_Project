@@ -3,7 +3,7 @@ package com.ingredientTracker.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "User", schema = "IngredientTracker", catalog = "")
+@Table(name = "User", schema = "IngredientTracker")
 public class UserEntity {
     private int id;
     private String username;
