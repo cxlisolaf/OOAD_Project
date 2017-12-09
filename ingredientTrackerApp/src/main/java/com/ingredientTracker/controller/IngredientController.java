@@ -53,9 +53,20 @@ public class IngredientController {
     @RequestMapping(value = "/add-ingredient", method = RequestMethod.GET)
     public String showAddIngredient(ModelMap model) {
         model.addAttribute("ingredients", new IngredientsEntity());
+
         return "add-ingredient";
     }
 
+    @RequestMapping(value = "/add-ingredient", method = RequestMethod.POST)
+    public String addIngredient(ModelMap model, IngredientsEntity ingredientsEntity){
+    this.ingredientService.addIngredient(ingredientsEntity);
+    return "redirect:/mypantry";
+    }
 
+    @RequestMapping("/remove/{ingredientId}")
+    public String removeIngredient(@PathVariable("ingredientId") int ingredientId) {
+        this.ingredientService.removeIngredient(ingredientId);
+        return "redirect:/mypantry";
+    }
 
 }

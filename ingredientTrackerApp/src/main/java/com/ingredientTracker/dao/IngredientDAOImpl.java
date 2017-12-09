@@ -58,7 +58,6 @@ public class IngredientDAOImpl implements IngredientDAO {
 
     }
 
-
     public void removeIngredient(int id) {
         Session session = this.sessionFactory.getCurrentSession();
         IngredientsEntity i = (IngredientsEntity) session.load(IngredientsEntity.class, new Integer(id));
@@ -69,5 +68,43 @@ public class IngredientDAOImpl implements IngredientDAO {
 
     }
 
+    public List<IngredientsEntity> listUserIngredient(int id){
+        Session session = this.sessionFactory.getCurrentSession();
+        List<IngredientsEntity> ingredientsEntityList =
+                session.createQuery("from IngredientsEntity  i where i.ingredientId=" +id).list();
+        for (IngredientsEntity i: ingredientsEntityList){
+            logger.info("ingredient list:"+i);
+        }
+        return ingredientsEntityList;
+
+    }
+
+
+    public IngredientsEntity getIngredientById(int id){
+        Session session = this.sessionFactory.getCurrentSession();
+        IngredientsEntity i = (IngredientsEntity) session.load(IngredientsEntity.class, new Integer(id));
+
+        logger.info("ingredient load successfully, detail=" + i);
+        return i;
+
+    }
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -11,14 +11,14 @@
 <div class="container">
     <h1>Add Ingredient</h1>
 
-    <form:form name="myForm" method="post" commandName="ingredient">
-        <form:hidden path="eventId" />
+    <form:form name="myForm" method="post" commandName="ingredients">
+        <form:hidden path="ingredientId" />
 
         <fieldset class="form-group">
-            <form:label path="eventType" class="col-md-1 control-label">Sport: </form:label>
+            <form:label path="IngredientName" class="col-md-1 control-label">Ingredient: </form:label>
             <div class="col-md-5">
-                <form:select path="name" class="form-control" id="type"
-                             required="required" onChange="showCourt(this.selectedIndex);">
+                <form:select path="ingredientName" class="form-control" id="IngredientName"
+                             required="required">
                     <option value="NONE" label="--- Select ---" />
                     <option value="egg">Egg</option>
                     <option value="milk">Milk</option>
@@ -29,50 +29,28 @@
                     <option value="cream">Cream</option>
 
                 </form:select>
-                <form:errors path="eventType" cssClass="text-warning" />
+                <form:errors path="ingredientName" cssClass="text-warning" />
             </div>
         </fieldset>
 
-        <fieldset class="form-group">
-            <form:label path="eventDate" class="col-md-1 control-label">Date: </form:label>
-            <div class="col-md-5">
-                <div class="input-group">
-                    <form:input class="form-control" id="date" name="date"
-                                placeholder="MM/DD/YYYY" type="text" path="eventDate"/>
-                    <div class="input-group-addon">
-                        <i class="fa fa-calendar"> </i>
-                    </div>
-                </div>
-            </div>
-        </fieldset>
 
         <fieldset class="form-group">
-            <form:label path="eventTime" class="col-md-1 control-label">Time: </form:label>
+            <form:label path="ingredientQuantity" class="col-md-1 control-label">Quantity: </form:label>
             <div class="col-md-5">
-                <form:select path="eventTime" class="form-control" id="time"
+                <form:select path="ingredientQuantity" class="form-control" id="quantity"
                              required="required">
                     <option value="NONE" label="--- Select ---" />
-                    <option>08:00-10:00</option>
-                    <option>10:00-12:00</option>
-                    <option>13:00-15:00</option>
-                    <option>15:00-17:00</option>
-                    <option>17:00-19:00</option>
-                    <option>19:00-21:00</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
                 </form:select>
-                <form:errors path="eventTime" cssClass="text-warning" />
+                <form:errors path="ingredientQuantity" cssClass="text-warning" />
             </div>
         </fieldset>
 
-        <fieldset class="form-group">
-            <form:label path="eventPlace" class="col-md-1 control-label">Place: </form:label>
-            <div class="col-md-5">
-                <form:select path="eventPlace" class="form-control" id="place"
-                             required="required">
-                    <option value="" label="--- Select ---" />
-                </form:select>
-                <form:errors path="eventPlace" cssClass="text-warning" />
-            </div>
-        </fieldset>
         <input class="btn btn-success" type="submit" value="Submit" />
     </form:form>
 

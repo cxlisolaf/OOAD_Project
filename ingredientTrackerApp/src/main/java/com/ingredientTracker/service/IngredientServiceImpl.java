@@ -14,6 +14,7 @@ public class IngredientServiceImpl implements IngredientService {
 
     private IngredientDAO ingredientDAO;
 
+    @Transactional
     public void setIngredientDAO(IngredientDAO IngredientDAO){
         this.ingredientDAO = IngredientDAO;
     }
@@ -24,6 +25,7 @@ public class IngredientServiceImpl implements IngredientService {
 
     }
 
+    @Transactional
     public void updateIngredient(IngredientsEntity i){
         this.ingredientDAO.updateIngredient(i);
 
@@ -35,9 +37,44 @@ public class IngredientServiceImpl implements IngredientService {
 
     }
 
+    @Transactional
     public void removeIngredient(int id){
         this.ingredientDAO.removeIngredient(id);
 
     }
 
+    @Transactional
+    public IngredientsEntity getIngredientById(int id) {
+        return this.ingredientDAO.getIngredientById(id);
+    }
+
+    @Transactional
+    public List<IngredientsEntity> listUserIngredient(int id){
+        return this.ingredientDAO.listUserIngredient(id);
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
