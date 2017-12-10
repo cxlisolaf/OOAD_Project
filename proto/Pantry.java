@@ -8,8 +8,15 @@ public class Pantry {
 		ingredList.add(bread);
 		Ingred cheese = new Ingred("cheese", "slice", 5);
 		ingredList.add(cheese);
-		Ingred butter = new Ingred("butter", "oz", 1);
+		Ingred butter = new Ingred("butter", "oz", 8);
 		ingredList.add(butter);
+
+		Ingred flour = new Ingred("flour", "cups", 20);
+		ingredList.add(flour);
+		Ingred sugar = new Ingred("sugar", "cups", 10);
+		ingredList.add(sugar);
+		Ingred eggs = new Ingred("eggs", "egg", 12);
+		ingredList.add(eggs);
 	}
 
 	public Ingred getAt(int num) {

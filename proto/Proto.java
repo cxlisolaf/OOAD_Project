@@ -69,6 +69,38 @@ public class Proto {
 		gc.setIngredList(gcList);
 
 		mRL.add(gc);
+
+		Recipe cake = new Recipe ("Cake");
+		cake.setInstruct("Bake!");
+		List<Ingred> cakeList = new ArrayList<Ingred>();
+		Ingred cake1 = new Ingred("flour", "cups", 2.5);
+		Ingred cake2 = new Ingred("eggs", "egg", 4);
+		Ingred cake3 = new Ingred("butter", "oz", 8.0);
+		Ingred cake4 = new Ingred("sugar", "cups", 3);
+		cakeList.add(cake1);
+		cakeList.add(cake2);
+		cakeList.add(cake3);
+		cakeList.add(cake4);
+		cake.setIngredList(cakeList);
+
+		mRL.add(cake);
+
+		Recipe ccake = new Recipe ("Chocolate Cake");
+		ccake.setInstruct("Bake!");
+		List<Ingred> ccakeList = new ArrayList<Ingred>();
+		Ingred ccake1 = new Ingred("flour", "cups", 2.5);
+		Ingred ccake2 = new Ingred("eggs", "egg", 4);
+		Ingred ccake3 = new Ingred("butter", "oz", 8.0);
+		Ingred ccake4 = new Ingred("sugar", "cups", 3);
+		Ingred ccake5 = new Ingred("Chocolate Frosting", "cups", 5);
+		ccakeList.add(ccake1);
+		ccakeList.add(ccake2);
+		ccakeList.add(ccake3);
+		ccakeList.add(ccake4);
+		ccakeList.add(ccake5);
+		ccake.setIngredList(ccakeList);
+
+		mRL.add(ccake);
 	}
 
 	// static void pantryView(User user) {

@@ -30,7 +30,11 @@ public class SearchController {
 						case 1:	mFilter = new IngredFilter(mUser.getPantry());
 						 		break;
 
-						case 2: //mFilter = new IngredFilter(mUser.getPantry());
+						case 2: sc.nextLine();
+								clearDisplay();
+								System.out.println("Enter search term");
+								String match = sc.nextLine();
+								mFilter = new StringFilter(match);
 								break;
 
 						default : break;
