@@ -43,7 +43,7 @@
         </thead>
 
         <tbody
-        <c:forEach items="${IngredientEntity}" var="ingredient" varStatus="status">
+        <c:forEach items="${ingredients}" var="ingredient" varStatus="status">
             <tr>
                 <td>${ingredient.ingredientName}</td>
                 <td>${ingredient.ingredientQuantity}</td>
@@ -77,6 +77,9 @@
     </div>
     <div>
         <a class="btn btn-success" href="/add-ingredient">add Ingredient</a>
+
+
+        <a class="btn btn-success" href="/login">search recipes</a>
     </div>
 
 </div>

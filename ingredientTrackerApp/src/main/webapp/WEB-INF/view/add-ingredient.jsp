@@ -9,7 +9,7 @@
 
 
 <div class="container">
-    <h1>Add Ingredient</h1>
+    <h3>Add Ingredient</h3>
 
     <form:form name="myForm" method="post" commandName="ingredients">
         <form:hidden path="ingredientId" />

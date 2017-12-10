@@ -27,12 +27,15 @@ public class UserController {
         this.userService = us;
     }
 
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String showWelcomePage(){ return "index"; }
+
+
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String showRegisterPage(ModelMap model){
         model.addAttribute("user", new UserEntity());
         return "register";
     }
-
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String addUser(ModelMap model, UserEntity user) {
