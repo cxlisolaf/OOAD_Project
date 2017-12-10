@@ -8,11 +8,13 @@ public class Proto {
 		int option = 0;
 
 		//System.out.println("Welcome " + user.getName());
+		RecipeList mRL = new RecipeList();
+		fillRecipes(mRL);
 
 		while (true) {
 			clearDisplay();
 			System.out.println("Welcome " + user.getName());
-			System.out.println("Menu\n1 to view Pantry\n2 to view Recipes\n3 to view Favorites\n4 to view Histroy\n0 to Quit");
+			System.out.println("Menu\n1 to view Pantry\n2 to view Recipes\n3 to view Favorites\n4 to view Histroy\n5 to Search\n0 to Quit");
 			option = sc.nextInt();
 
 			switch(option) {
@@ -39,6 +41,11 @@ public class Proto {
 						rc2 = null;
 						break;
 
+				case 5: SearchController srchc = new SearchController(mRL, user);
+						srchc.run();
+						srchc = null;
+						break;
+
 				default: break;
 			}
 		}
@@ -47,6 +54,21 @@ public class Proto {
 	static void clearDisplay() {
 			System.out.print("\033[H\033[2J");
 			System.out.flush();
+	}
+
+	static void fillRecipes(RecipeList mRL) {
+		Recipe gc = new Recipe ("Grilled Cheese");
+		gc.setInstruct("Grill it up!");
+		List<Ingred> gcList = new ArrayList<Ingred>();
+		Ingred gc1 = new Ingred("cheese", "slice", 1.0);
+		Ingred gc2 = new Ingred("bread", "slice", 2.0);
+		Ingred gc3 = new Ingred("butter", "oz", 2.0);
+		gcList.add(gc1);
+		gcList.add(gc2);
+		gcList.add(gc3);
+		gc.setIngredList(gcList);
+
+		mRL.add(gc);
 	}
 
 	// static void pantryView(User user) {

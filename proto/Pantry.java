@@ -4,8 +4,12 @@ public class Pantry {
 	private List<Ingred> ingredList = new ArrayList<Ingred>();
 
 	Pantry() {
-		Ingred bread = new Ingred("bread", "loaf", 1);
+		Ingred bread = new Ingred("bread", "slice", 5);
 		ingredList.add(bread);
+		Ingred cheese = new Ingred("cheese", "slice", 5);
+		ingredList.add(cheese);
+		Ingred butter = new Ingred("butter", "oz", 1);
+		ingredList.add(butter);
 	}
 
 	public Ingred getAt(int num) {
