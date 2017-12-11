@@ -48,6 +48,13 @@ public class Proto {
 
 				default: break;
 			}
+			RecipeList userRecipes = user.getRecipeList();
+			for (int i = 0; i < userRecipes.getSize(); i ++) {
+				for (int j = 0; j < mRL.getSize(); j++) {
+					if (userRecipes.getAt(i) == mRL.getAt(j)) break;
+					if (j == mRL.getSize()-1) mRL.add(userRecipes.getAt(i));
+				}
+			}
 		}
 	}
 
