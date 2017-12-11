@@ -26,14 +26,16 @@ public class PantryController {
 	}
 
 	private void add() {
+		clearDisplay();
 		String name;
 		String unit;
 		double amount;
 		System.out.println("Enter name of Ingredient");
-		name = sc.next();
+		sc.nextLine();
+		name = sc.nextLine();
 		System.out.println("Enter name of Unit");
 		unit = sc.next();
-		System.out.println("Enter Anmount");
+		System.out.println("Enter Amount");
 		amount = sc.nextDouble();
 		Ingred newIn = new Ingred(name, unit, amount);
 		mPantry.add(newIn);

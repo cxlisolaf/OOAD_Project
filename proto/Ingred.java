@@ -16,11 +16,11 @@ public class Ingred {
 	}
 
 	public String getName() {
-		return this.name;
+		return this.name.toLowerCase();
 	}
 
 	public String getUnit() {
-		return this.unit;
+		return this.unit.toLowerCase();
 	}
 
 	public double getAmount() {

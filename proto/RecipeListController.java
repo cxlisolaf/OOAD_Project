@@ -85,7 +85,7 @@ public class RecipeListController {
 		name = sc.nextLine();
 		Recipe mR = new Recipe(name);
 		System.out.println("Enter ingredient name");
-		String ingredName = sc.next();
+		String ingredName = sc.nextLine();
 		List<Ingred> iList = new ArrayList<Ingred>();
 		while (!ingredName.equals("0")) {
 			System.out.println("Enter ingredient units");
@@ -95,10 +95,10 @@ public class RecipeListController {
 			Ingred mI = new Ingred(ingredName, unit, amount);
 			iList.add(mI);
 			System.out.println("Enter ingredient name (0 to end)");
-			ingredName = sc.next();
+			sc.nextLine();
+			ingredName = sc.nextLine();
 		}
 		mR.setIngredList(iList);
-		sc.nextLine();
 		System.out.println("Enter instructions");
 		String instructions = sc.nextLine();
 		mR.setInstruct(instructions);
